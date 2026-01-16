@@ -10,7 +10,7 @@ def search_repositories(language, created_after):
     """
     main logic to call github url & search for repos based on params
     :param language: str
-    :param created_after: str
+    :param created_after: str (created_after format should be YYYY-MM-DD)
     :return: json obj
 
     TODO input format & validtions for future
@@ -19,10 +19,10 @@ def search_repositories(language, created_after):
     cached = redis_client.get(cache_key)
 
     if cached:
-        print("found cache")
+        # print("found cache")
         return json.loads(cached)
-    else:
-        print("cache didnt worked")
+    # else:
+    #     print("cache didnt worked")
 
     headers = {}
     if settings.GITHUB_TOKEN:
@@ -45,8 +45,9 @@ def search_repositories(language, created_after):
         },
         timeout=10
     )
+    # print("before response")
     response.raise_for_status()
-
+    # print("after response")
     items = response.json()["items"]
     # print(items)
     redis_client.setex(

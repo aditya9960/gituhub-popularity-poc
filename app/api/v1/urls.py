@@ -4,12 +4,16 @@ from app.utility.github_client import  search_repositories
 from app.utility.popularity_score import compute_score
 
 
-router = APIRouter(prefix="/urls", tags=["urls-v1"])
+router = APIRouter(prefix="/gitrepos", tags=["urls-v1"])
 
 @router.get("/popular")
 def get_popular_repos(language: Optional[str] = None, created_after: Optional[str] = None):
-    print("I am here")
+    # print("I am here")
     try:
+        # validation req
+        # created_after format should be YYYY-MM-DD
+        # print(language)
+        # print(type(language))
         repos = search_repositories(language, created_after)
         # print(len(repos))
         return [

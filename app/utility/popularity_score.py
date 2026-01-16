@@ -14,8 +14,6 @@ def compute_score(repo: dict) -> float:
     recency = math.exp(-days / 90)
     # below can be made configurable & above recency too
     return round(
-        0.5 * math.log(stars + 1) +
-        0.3 * math.log(forks + 1) +
-        0.2 * recency,
-        4
+        0.5 * math.log(stars + 1) + 0.3 * math.log(forks + 1) + 0.2 * recency,
+        2
     )
