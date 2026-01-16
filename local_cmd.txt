@@ -1,0 +1,19 @@
+#Repo clone url :
+git clone https://github.com/aditya9960/gituhub-popularity-poc.git
+#create virtual env :
+python -m venv venv
+
+#Python version : Python 3.8.1
+# Pip version : pip 19.2.3 => upgrade to =>
+python -m pip install --upgrade pip
+#Pip version : pip 25.0.1
+
+#install requirements
+pip install -r requirements.txt
+
+#setup main.py & config to run app
+#setup env local file
+
+
+
+
